@@ -8,13 +8,9 @@ git:
 os:
   - linux
 
-env:
-- FACTORIO_VERSION=stable
-- FACTORIO_VERSION=latest
-
 before_install:
-  - export FACTORIO_HEADLESS_COMPRESSED=${HOME}/factorio_headless_x64_${FACTORIO_VERSION}.tar.xz
-  - curl -L https://factorio.com/get-download/${FACTORIO_VERSION}/headless/linux64 -o ${FACTORIO_HEADLESS_COMPRESSED}
+  - export FACTORIO_HEADLESS_COMPRESSED=${HOME}/factorio_headless_x64_stable.tar.xz
+  - curl -L https://factorio.com/get-download/stable/headless/linux64 -o ${FACTORIO_HEADLESS_COMPRESSED}
   - tar xvf ${FACTORIO_HEADLESS_COMPRESSED} --directory ${HOME}
   - export MODS_PATH=${HOME}/mods
   - mkdir ${MODS_PATH}
@@ -33,11 +29,11 @@ script:
   - ${FACTORIO} -v --create ${MAP_NAME} --mod-directory ${MODS_PATH}
   - ${FACTORIO} -v --benchmark ${MAP_NAME} --benchmark-ticks 1 --mod-directory ${MODS_PATH}
 
-before_deploy:
-  - export TAG=$(cat info.json | jq -r .version)
+before_deploy:  
+  - export TRAVIS_TAG=$(cat info.json | jq -r .version)
   - git config --local user.name ${GIT_USER_NAME}
   - git config --local user.email ${GIT_USER_EMAIL}
-  - git tag $TAG
+  - git tag -l | grep $TRAVIS_TAG || git tag $TRAVIS_TAG
 
 deploy:
   provider: releases
@@ -47,4 +43,4 @@ deploy:
   skip_cleanup: true
   on:
     all_branches: true
-    condition: $FACTORIO_VERSION = stable
+
