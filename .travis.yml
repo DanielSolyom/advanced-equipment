@@ -30,3 +30,12 @@ script:
   - FACTORIO=${HOME}/factorio/bin/x64/factorio
   - ${FACTORIO} -v --create ${MAP_NAME} --mod-directory ${MODS_PATH}
   - ${FACTORIO} -v --benchmark ${MAP_NAME} --benchmark-ticks 1 --mod-directory ${MODS_PATH}
+  
+ deploy:
+  provider: releases
+  api_key:
+    secure: YOUR_API_KEY_ENCRYPTED
+  file: "FILE TO UPLOAD"
+  skip_cleanup: true
+  on:
+    tags: true
