@@ -23,7 +23,8 @@ install:
   - MOD_DIRECTORY=${PWD##*/}
   - MOD_NAME_AND_VERSION=$(cat info.json | jq -r '"\(.name)_\(.version)"')
   - cd ..
-  - zip -0 --exclude=*.git* --exclude=.travis.yml -r ${MODS_PATH}/${MOD_NAME_AND_VERSION}.zip ${MOD_DIRECTORY}
+  - MOD_FILE_PATH=${MODS_PATH}/${MOD_NAME_AND_VERSION}.zip
+  - zip -0 --exclude=*.git* --exclude=.travis.yml -r ${MOD_FILE_PATH} ${MOD_DIRECTORY}
 
 script:
   - MAP_NAME=test
@@ -34,8 +35,8 @@ script:
  deploy:
   provider: releases
   api_key:
-    secure: YOUR_API_KEY_ENCRYPTED
-  file: "FILE TO UPLOAD"
+    secure: ${GITHUB_OAUTH_TOKEN}
+  file: ${MOD_FILE_PATH}
   skip_cleanup: true
   on:
     tags: true
