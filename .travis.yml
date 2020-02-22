@@ -13,30 +13,28 @@ env:
 - FACTORIO_VERSION=latest
 
 before_install:
-  - FACTORIO_HEADLESS_COMPRESSED=${HOME}/factorio_headless_x64_${FACTORIO_VERSION}.tar.xz
+  - export FACTORIO_HEADLESS_COMPRESSED=${HOME}/factorio_headless_x64_${FACTORIO_VERSION}.tar.xz
   - curl -L https://factorio.com/get-download/${FACTORIO_VERSION}/headless/linux64 -o ${FACTORIO_HEADLESS_COMPRESSED}
   - tar xvf ${FACTORIO_HEADLESS_COMPRESSED} --directory ${HOME}
-  - MODS_PATH=${HOME}/mods
+  - export MODS_PATH=${HOME}/mods
   - mkdir ${MODS_PATH}
 
 install:
-  - MOD_DIRECTORY=${PWD##*/}
-  - MOD_NAME_AND_VERSION=$(cat info.json | jq -r '"\(.name)_\(.version)"')
-  - cd ..
-  - MOD_FILE_PATH=${MODS_PATH}/${MOD_NAME_AND_VERSION}.zip
+  - export MOD_DIRECTORY=${PWD##*/}
+  - export MOD_NAME_AND_VERSION=$(cat info.json | jq -r '"\(.name)_\(.version)"')
+  - pushd ..
+  - export MOD_FILE_PATH=${MODS_PATH}/${MOD_NAME_AND_VERSION}.zip
   - zip -0 --exclude=*.git* --exclude=.travis.yml -r ${MOD_FILE_PATH} ${MOD_DIRECTORY}
+  - popd
 
 script:
-  - MAP_NAME=test
-  - FACTORIO=${HOME}/factorio/bin/x64/factorio
+  - export MAP_NAME=test
+  - export FACTORIO=${HOME}/factorio/bin/x64/factorio
   - ${FACTORIO} -v --create ${MAP_NAME} --mod-directory ${MODS_PATH}
   - ${FACTORIO} -v --benchmark ${MAP_NAME} --benchmark-ticks 1 --mod-directory ${MODS_PATH}
-  
- deploy:
-  provider: releases
-  api_key:
-    secure: GITHUB_OAUTH_TOKEN
-  file: ${MOD_FILE_PATH}
-  skip_cleanup: true
-  on:
-    tags: true
+
+before_deploy:
+      - git config --local user.name "Daniel Solyom"
+      - git config --local user.email "solyomd@gmail.com"
+      - export MOD_VERSION=$(cat info.json | jq -r .version)
+      - git tag $MOD_VERSION
