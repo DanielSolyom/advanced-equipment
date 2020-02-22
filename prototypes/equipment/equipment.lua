@@ -5,7 +5,7 @@ data:extend(
     name = "energy-shield-mk3-equipment",
     sprite =
     {
-      filename = "__Advanced Equipment__/graphics/equipment/energy-shield-mk3-equipment.png",
+      filename = "__advanced-equipment__/graphics/equipment/energy-shield-mk3-equipment.png",
       width = 64,
       height = 64,
       priority = "medium"
@@ -32,7 +32,7 @@ data:extend(
     name = "battery-mk3-equipment",
     sprite =
     {
-      filename = "__Advanced Equipment__/graphics/equipment/battery-mk3-equipment.png",
+      filename = "__advanced-equipment__/graphics/equipment/battery-mk3-equipment.png",
       width = 32,
       height = 64,
       priority = "medium"
@@ -56,7 +56,7 @@ data:extend(
     name = "fusion-reactor-mk2-equipment",
     sprite =
     {
-      filename = "__Advanced Equipment__/graphics/equipment/fusion-reactor-mk2-equipment.png",
+      filename = "__advanced-equipment__/graphics/equipment/fusion-reactor-mk2-equipment.png",
       width = 128,
       height = 128,
       priority = "medium"

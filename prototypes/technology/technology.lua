@@ -3,7 +3,7 @@ data:extend(
   {
     type = "technology",
     name = "advanced-equipment",
-    icon = "__Advanced Equipment__/graphics/technology/advanced-equipment.png",
+    icon = "__advanced-equipment__/graphics/technology/advanced-equipment.png",
 	  icon_size = 128,
     prerequisites = {"power-armor-mk2", "battery-mk2-equipment", "energy-shield-mk2-equipment", "fusion-reactor-equipment", "speed-module-3", "effectivity-module-3"},
     effects =

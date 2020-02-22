@@ -2,7 +2,7 @@ data:extend{
   {
     type = "armor",
     name = "power-armor-mk3",
-    icon = "__Advanced Equipment__/graphics/icons/power-armor-mk3.png",
+    icon = "__advanced-equipment__/graphics/icons/power-armor-mk3.png",
     icon_size = 32,
     icon_mipmaps = 4,
     resistances =

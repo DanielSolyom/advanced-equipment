@@ -2,7 +2,7 @@ data:extend{
   {
     type = "item",
     name = "energy-shield-mk3-equipment",
-    icon = "__Advanced Equipment__/graphics/icons/energy-shield-mk3-equipment.png",
+    icon = "__advanced-equipment__/graphics/icons/energy-shield-mk3-equipment.png",
     icon_size = 64,
     icon_mipmaps = 4,
     placed_as_equipment_result = "energy-shield-mk3-equipment",
@@ -14,7 +14,7 @@ data:extend{
   {
     type = "item",
     name = "battery-mk3-equipment",
-    icon = "__Advanced Equipment__/graphics/icons/battery-mk3-equipment.png",
+    icon = "__advanced-equipment__/graphics/icons/battery-mk3-equipment.png",
     icon_size = 64,
     icon_mipmaps = 4,
     placed_as_equipment_result = "battery-mk3-equipment",
@@ -26,7 +26,7 @@ data:extend{
   {
     type = "item",
     name = "fusion-reactor-mk2-equipment",
-    icon = "__Advanced Equipment__/graphics/icons/fusion-reactor-mk2-equipment.png",
+    icon = "__advanced-equipment__/graphics/icons/fusion-reactor-mk2-equipment.png",
     icon_size = 32,
     icon_mipmaps = 4,
     placed_as_equipment_result = "fusion-reactor-mk2-equipment",
