@@ -34,10 +34,10 @@ script:
   - ${FACTORIO} -v --benchmark ${MAP_NAME} --benchmark-ticks 1 --mod-directory ${MODS_PATH}
 
 before_deploy:
-  - export TRAVIS_TAG=$(cat info.json | jq -r .version)
+  - export TAG=$(cat info.json | jq -r .version)
   - git config --local user.name ${GIT_USER_NAME}
   - git config --local user.email ${GIT_USER_EMAIL}
-  - git tag $TRAVIS_TAG
+  - git tag $TAG
 
 deploy:
   provider: releases
@@ -46,6 +46,5 @@ deploy:
   file: $MOD_FILE_PATH
   skip_cleanup: true
   on:
-    tags: true
     all_branches: true
     condition: $FACTORIO_VERSION = stable
