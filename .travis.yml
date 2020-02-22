@@ -41,8 +41,7 @@ deploy:
     secure: $ENCRYPTED_GITHUB_OAUTH_TOKEN
   file: $MOD_FILE_PATH
   skip_cleanup: true
-  branches:
-    only:
-      - travis-release-test
+  on:
+    all_branches: true
 
       
