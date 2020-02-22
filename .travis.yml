@@ -42,8 +42,8 @@ before_deploy:
 deploy:
   provider: releases
   api_key:
-    secure: $ENCRYPTED_GITHUB_OAUTH_TOKEN
-  file: $MOD_FILE_PATH
+    secure: "$ENCRYPTED_GITHUB_OAUTH_TOKEN"
+  file: "$MOD_FILE_PATH"
   skip_cleanup: true
   on:
     all_branches: true
