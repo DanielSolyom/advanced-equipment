@@ -13,14 +13,14 @@ before_install:
   - curl -L https://factorio.com/get-download/latest/headless/linux64 -o ${FACTORIO_HEADLESS_COMPRESSED}
   - tar xvf ${FACTORIO_HEADLESS_COMPRESSED} --directory ${HOME}
   - export MODS_DIRECTORY=${HOME}/mods
-  - mkdir ${MODS_PATH}
+  - mkdir ${MODS_DIRECTORY}
 
 install:
   - export SOURCE_DIRECTORY=${PWD##*/}
   - export ASSET_NAME=$(cat info.json | jq -r '"\(.name)_\(.version)"')
   - pushd ..
   - export MOD_PATH=${MODS_DIRECTORY}/${ASSET_NAME}.zip
-  - zip -0 --exclude=*.git* --exclude=.travis.yml -r ${MOD_FILE_PATH} ${SOURCE_DIRECTORY}
+  - zip -0 --exclude=*.git* --exclude=.travis.yml -r ${MOD_PATH} ${SOURCE_DIRECTORY}
   - popd
 
 script:
