@@ -35,4 +35,4 @@ data:extend{
     equipment_grid = "advanced-equipment-grid",
     inventory_size_bonus = 50
   }
-}  
+}

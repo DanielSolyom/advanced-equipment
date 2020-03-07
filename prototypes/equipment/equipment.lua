@@ -1,5 +1,4 @@
-data:extend(
-{
+data:extend({
   {
     type = "energy-shield-equipment",
     name = "energy-shield-mk3-equipment",
@@ -75,5 +74,29 @@ data:extend(
     power = "3000kW",
     categories = {"armor"}
   },
-}
-)
+  {
+    type = "movement-bonus-equipment",
+    name = "exoskeleton-mk2-equipment",
+    sprite =
+    {
+      filename = "__advanced-equipment__/graphics/equipment/exoskeleton-mk2-equipment.png",
+      width = 64,
+      height = 128,
+      priority = "medium"
+    },
+    shape =
+    {
+      width = 2,
+      height = 4,
+      type = "full"
+    },
+    energy_source =
+    {
+      type = "electric",
+      usage_priority = "secondary-input"
+    },
+    energy_consumption = "500kW",
+    movement_bonus = 0.5,
+    categories = {"armor"}
+  }
+})

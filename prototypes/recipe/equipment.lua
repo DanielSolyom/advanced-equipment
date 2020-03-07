@@ -39,5 +39,18 @@ data:extend(
     },
     result = "fusion-reactor-mk2-equipment"
   },
-}
-)
+  {
+    type = "recipe",
+    name = "exoskeleton-mk2-equipment",
+    enabled = false,
+    energy_required = 10,
+    ingredients =
+    {
+      {"exoskeleton-equipment", 10},
+	    {"low-density-structure", 100},
+      {"processing-unit", 100},
+      {"electric-engine-unit", 150}
+    },
+    result = "exoskeleton-mk2-equipment"
+  },
+})

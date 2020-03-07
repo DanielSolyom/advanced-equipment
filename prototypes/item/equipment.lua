@@ -34,5 +34,17 @@ data:extend{
     order = "a[energy-source]-b[fusion-reactor]",
     stack_size = 20,
     default_request_amount = 10
+  },
+  {
+    type = "item",
+    name = "exoskeleton-mk2-equipment",
+    icon = "__advanced-equipment__/graphics/icons/exoskeleton-mk2-equipment.png",
+    icon_size = 128,
+    icon_mipmaps = 4,
+    placed_as_equipment_result = "exoskeleton-mk2-equipment",
+    subgroup = "equipment",
+    order = "e[exoskeleton]-a[exoskeleton-mk2-equipment]",
+    stack_size = 20,
+    default_request_amount = 10
   }
 }

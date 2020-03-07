@@ -112,5 +112,34 @@ data:extend(
       time = 30
     },
     order = "g-i-b"
+  },
+  {
+    type = "technology",
+    name = "exoskeleton-mk2-equipment",
+    icon = "__advanced-equipment__/graphics/technology/exoskeleton-mk2-equipment.png",
+	  icon_size = 128,
+    prerequisites = {"exoskeleton-equipment", "production-science-pack", "utility-science-pack", "military-science-pack"},
+    effects =
+    {
+      {
+        type = "unlock-recipe",
+        recipe = "exoskeleton-mk2-equipment"
+      }
+    },
+    unit =
+    {
+      count = 150,
+      ingredients =
+      {
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1},
+        {"military-science-pack", 1},
+        {"chemical-science-pack", 1},
+        {"production-science-pack", 1},
+        {"utility-science-pack", 1},
+      },
+      time = 30
+    },
+    order = "g-i-b"
   }
 })
