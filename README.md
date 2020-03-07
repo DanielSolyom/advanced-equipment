@@ -9,3 +9,4 @@ Adds the following equipment:
 - Portable fusion reactor MK2
 - Energy shield MK3
 - Personal battery MK3
+- Exoskeleton MK2
